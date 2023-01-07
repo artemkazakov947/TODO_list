@@ -8,7 +8,7 @@ from app.models import Task, Tag
 
 class Home(generic.ListView):
     model = Task
-    queryset = Task.objects.all()
+    queryset = Task.objects.all().prefetch_related("tags")
     template_name = "app/home.html"
 
 
